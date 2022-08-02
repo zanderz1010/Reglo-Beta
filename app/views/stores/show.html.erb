@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Store #<%= @the_store.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/stores">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_store/<%= @the_store.id %>">
+          Delete store
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_store.website %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_store.location %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_store.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_store.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit store
+    </h2>
+
+    <form action="/modify_store/<%= @the_store.id %>"  method="post" >
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_store.website %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_store.location %>">
+      </div>
+
+      <button>
+        Update store
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
